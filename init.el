@@ -7,9 +7,12 @@
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 
+;; Tweaks
 (show-paren-mode 1)
 (setq-default show-trailing-whitespace t)
 (global-unset-key (kbd "C-z")) ;; stop freezing on me
+(setq shell-file-name "bash")
+(setq shell-command-switch "-ic")
 
 ;; Compilation buffer ansi terminal colors
 (add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
@@ -19,7 +22,8 @@
 (global-display-line-numbers-mode)
 
 ;; Theme
-(load-theme 'gruber-darker t)
+(set-frame-font "JetBrains Mono 12" nil t)
+(load-theme 'boron t)
 
 ;; multiple-cursors
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
@@ -40,8 +44,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("00b463c48742afe509ae7d1dcfce09471f7203e13a118f1256b208017a978b4e" default))
  '(package-selected-packages
-   '(clang-format multiple-cursors auctex magit rustic lsp-mode gruber-darker-theme)))
+   '(cherry-blossom-theme boron-theme clang-format multiple-cursors auctex magit rustic lsp-mode gruber-darker-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
