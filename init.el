@@ -13,6 +13,8 @@
 (global-unset-key (kbd "C-z")) ;; stop freezing on me
 (setq shell-file-name "bash")
 (setq shell-command-switch "-ic")
+(setq initial-scratch-message ";; Hack with purpose.\n\n")
+(setq inhibit-startup-message t)
 
 ;; Compilation buffer ansi terminal colors
 (add-hook 'compilation-filter-hook 'ansi-color-compilation-filter)
@@ -33,6 +35,9 @@
 ;; AUCTeX
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
+
+;; Rustic
+(setq rustic-lsp-client nil)
 
 ;; backup and autosave in one place. flat, no tree structure
 (setq temporary-file-directory "~/.emacs.d/tmp")
