@@ -1,6 +1,16 @@
-;; MELPA
+;; melpa
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+
+;; use-package
+(eval-when-compile
+  (require 'use-package))
+
+(use-package magit)
+(use-package rustic)
+(use-package boron-theme)
+(use-package clang-format)
+(use-package multiple-cursors)
 
 ;; Hide bars
 (menu-bar-mode -1)
@@ -29,25 +39,13 @@
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-
-;; AUCTeX
-(setq TeX-auto-save t)
-(setq TeX-parse-self t)
-
-;; backup and autosave in one place. flat, no tree structure
-(setq temporary-file-directory "~/.emacs.d/tmp")
-(setq backup-directory-alist '(("" . "~/.emacs.d/backup")))
-(setq auto-save-file-name-transforms `((".*" "~/.emacs.d/saves" t)))
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   '("00b463c48742afe509ae7d1dcfce09471f7203e13a118f1256b208017a978b4e" default))
  '(package-selected-packages
-   '(cherry-blossom-theme boron-theme clang-format multiple-cursors auctex magit rustic lsp-mode gruber-darker-theme)))
+   '(multiple-cursors use-package rustic magit clang-format boron-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
