@@ -14,7 +14,9 @@
 
 ;; Tweaks
 (show-paren-mode 1)
-(setq-default show-trailing-whitespace t)
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (setq show-trailing-whitespace t)))
 (global-unset-key (kbd "C-z")) ;; stop freezing on me
 (setq shell-file-name "bash")
 (setq shell-command-switch "-ic")
@@ -36,7 +38,7 @@
 (global-display-line-numbers-mode)
 
 ;; Theme
-(set-frame-font "JetBrains Mono 12" nil t)
+(set-frame-font "RedHatMono SemiBold 12" nil t)
 (load-theme 'boron t)
 
 ;; multiple-cursors
@@ -49,6 +51,7 @@
 (setq TeX-parse-self t)
 
 ;; Rustic
+;; To use cargo with eshell, make absolute symlinks to (ex) /usr/bin
 (setq rustic-lsp-client nil)
 
 ;; backup and autosave in one place. flat, no tree structure
@@ -74,3 +77,4 @@
  )
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
+(put 'narrow-to-region 'disabled nil)
